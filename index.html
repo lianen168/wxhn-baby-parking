@@ -3,695 +3,445 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wxhn.baby | 我喜欢你宝贝</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700;900&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+    <title>wxhn.baby - 我喜欢你 · 始于初见</title>
     <style>
-        * {
+        :root {
+            /* Palette: First Love Pink, Fresh Mint, Pure White */
+            --first-love-pink: #ff9ff3;
+            --fresh-mint: #55efc4;
+            --deep-rose: #fd79a8;
+            --bg-gradient: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            --text-main: #2d3436;
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Noto Serif SC', serif;
-            background: linear-gradient(135deg, #f9f0ff 0%, #f0e6ff 50%, #e6f2ff 100%);
-            color: #4a4a8a;
-            min-height: 100vh;
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: linear-gradient(180deg, #FFF0F5 0%, #E0F7FA 100%);
+            color: var(--text-main);
             overflow-x: hidden;
-            position: relative;
+            scroll-behavior: smooth;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
+
+        /* --- Header Section --- */
         header {
             text-align: center;
-            padding: 50px 0 30px;
-        }
-        
-        .logo {
-            font-family: 'ZCOOL QingKe HuangYou', cursive;
-            font-size: 5rem;
-            color: #6a5acd;
-            text-shadow: 3px 3px 0 #b19cd9, 6px 6px 0 rgba(106, 90, 205, 0.2);
-            margin-bottom: 20px;
-            letter-spacing: 8px;
-            animation: gentleGlow 3s ease-in-out infinite alternate;
-        }
-        
-        @keyframes gentleGlow {
-            from {
-                text-shadow: 3px 3px 0 #b19cd9, 6px 6px 0 rgba(106, 90, 205, 0.2);
-            }
-            to {
-                text-shadow: 3px 3px 0 #b19cd9, 6px 6px 0 rgba(106, 90, 205, 0.4), 0 0 15px #9370db;
-            }
-        }
-        
-        .subtitle {
-            font-size: 2.5rem;
-            color: #8a2be2;
-            margin-bottom: 25px;
+            padding: 4rem 1rem 2rem;
             position: relative;
+        }
+
+        .domain-title {
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            cursor: default;
+        }
+
+        /* Effect 1: wxhn - Heartbeat/Flutter (The nervousness of "I like you") */
+        .acronym-part {
             display: inline-block;
-        }
-        
-        .subtitle::after, .subtitle::before {
-            content: "💝";
-            margin: 0 20px;
-            font-size: 2.2rem;
-            vertical-align: middle;
-        }
-        
-        .domain-explanation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 40px 0;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        
-        .letter-box {
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 20px;
-            margin: 10px;
-            font-size: 2.5rem;
-            font-weight: 900;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .letter-w {
-            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
-            color: white;
-            transform: rotate(-5deg);
-        }
-        
-        .letter-x {
-            background: linear-gradient(135deg, #87ceeb, #1e90ff);
-            color: white;
-            transform: rotate(5deg);
-        }
-        
-        .letter-h {
-            background: linear-gradient(135deg, #98fb98, #32cd32);
-            color: white;
-            transform: rotate(-3deg);
-        }
-        
-        .letter-n {
-            background: linear-gradient(135deg, #ffd700, #ff8c00);
-            color: white;
-            transform: rotate(3deg);
-        }
-        
-        .letter-box:hover {
-            transform: scale(1.2) rotate(0deg);
-            z-index: 10;
-        }
-        
-        .plus-sign {
-            font-size: 2.5rem;
-            color: #9370db;
-            margin: 0 10px;
-        }
-        
-        .baby-box {
-            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 20px;
-            font-size: 2.2rem;
-            box-shadow: 0 8px 15px rgba(255, 105, 180, 0.3);
-        }
-        
-        .meaning-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin: 60px 0;
-        }
-        
-        .meaning-box {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 40px 30px;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 15px 35px rgba(147, 112, 219, 0.15);
-            border: 3px solid #d8bfd8;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-        
-        .meaning-box:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(147, 112, 219, 0.25);
-        }
-        
-        .meaning-box::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: linear-gradient(90deg, #ffb6c1, #87ceeb, #98fb98, #ffd700);
-        }
-        
-        .meaning-title {
-            font-size: 2.2rem;
-            color: #6a5acd;
-            margin-bottom: 25px;
-            text-align: center;
-            padding-bottom: 15px;
-            border-bottom: 3px dotted #d8bfd8;
-            font-weight: 900;
-        }
-        
-        .meaning-text {
-            font-size: 1.4rem;
-            line-height: 1.9;
-            text-align: center;
-            color: #555;
-        }
-        
-        .highlight {
-            color: #8a2be2;
-            font-weight: bold;
-            font-size: 1.6rem;
-            background: linear-gradient(45deg, #f0e6ff, #e6f2ff);
-            padding: 5px 10px;
-            border-radius: 10px;
-            display: inline-block;
-            margin: 5px;
-        }
-        
-        .dual-meaning {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .meaning-type {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            width: 100%;
-            max-width: 450px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            border-top: 8px solid;
-            text-align: center;
-        }
-        
-        .romantic {
-            border-top-color: #ff69b4;
-        }
-        
-        .parental {
-            border-top-color: #1e90ff;
-        }
-        
-        .type-title {
-            font-size: 1.8rem;
-            color: #4a4a8a;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .price-section {
-            background: white;
-            border-radius: 25px;
-            padding: 40px;
-            margin: 50px auto;
-            border: 4px solid #9370db;
-            text-align: center;
-            max-width: 700px;
-            box-shadow: 0 15px 35px rgba(147, 112, 219, 0.25);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .price-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: linear-gradient(90deg, #ffb6c1, #87ceeb, #98fb98, #ffd700);
-        }
-        
-        .price-title {
-            font-size: 2.5rem;
-            color: #6a5acd;
-            margin-bottom: 20px;
-        }
-        
-        .price {
-            font-size: 4rem;
-            color: #8a2be2;
-            font-weight: 900;
-            text-shadow: 3px 3px 0 #e6e6fa;
-            margin: 20px 0;
-            background: linear-gradient(45deg, #8a2be2, #9370db);
+            background: linear-gradient(to right, #ff9ff3, #fd79a8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            animation: flutterHeart 1.5s ease-in-out infinite;
+            letter-spacing: -2px;
         }
-        
-        .installment {
-            font-size: 1.6rem;
-            color: #6a5acd;
+
+        /* Effect 2: .baby - Gentle Sway (Cradle/Comfort) */
+        .tld-part {
+            display: inline-block;
+            color: var(--fresh-mint);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-shadow: 1px 1px 0px #00b894;
+            animation: gentleSway 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes flutterHeart {
+            0% { transform: scale(1); letter-spacing: -2px; }
+            50% { transform: scale(1.05); letter-spacing: 0px; filter: drop-shadow(0 0 5px rgba(253, 121, 168, 0.4)); }
+            100% { transform: scale(1); letter-spacing: -2px; }
+        }
+
+        @keyframes gentleSway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #636e72;
+            font-weight: 300;
             margin-top: 15px;
-            background: #f9f0ff;
-            padding: 15px;
-            border-radius: 15px;
-            display: inline-block;
+            letter-spacing: 2px;
         }
-        
-        .contact-section {
-            text-align: center;
-            margin: 60px 0 40px;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(249, 240, 255, 0.9), rgba(240, 230, 255, 0.9));
-            border-radius: 25px;
-            border: 3px solid #b19cd9;
-            box-shadow: 0 10px 30px rgba(177, 156, 217, 0.2);
+
+        .sub-tagline {
+            font-size: 1rem;
+            color: var(--deep-rose);
+            margin-top: 8px;
+            font-weight: bold;
         }
-        
-        .contact-title {
-            font-size: 2rem;
-            color: #6a5acd;
-            margin-bottom: 25px;
-        }
-        
-        .email {
-            font-size: 1.8rem;
-            color: #4a4a8a;
-            background: white;
-            padding: 18px 35px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 20px;
-            border: 3px solid #9370db;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 8px 20px rgba(147, 112, 219, 0.3);
-        }
-        
-        .email:hover {
-            background: #8a2be2;
-            color: white;
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
-        }
-        
-        .love-message {
-            font-size: 1.3rem;
-            text-align: center;
-            margin: 50px 0;
-            line-height: 2;
-            color: #6a5acd;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 20px;
-            border-left: 10px solid #ffb6c1;
-            border-right: 10px solid #87ceeb;
-        }
-        
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
+
+        /* --- Canvas Visualization --- */
+        #visual-wrapper {
+            position: relative;
             width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+            height: 400px;
+            background: radial-gradient(circle at center, #ffffff 0%, #ffeaa7 40%, #ff9ff3 100%);
             overflow: hidden;
+            margin-bottom: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         }
-        
-        .floating-element {
+
+        canvas {
+            display: block;
+        }
+
+        .visual-overlay {
             position: absolute;
-            font-size: 28px;
-            animation: floatElement 25s infinite linear;
-            opacity: 0.15;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(253, 121, 168, 0.5);
+            font-weight: bold;
+            letter-spacing: 5px;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* --- 8 Fields Grid --- */
+        .features-section {
+            padding: 2rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
         
-        @keyframes floatElement {
-            0% {
-                transform: translateY(100vh) rotate(0deg) scale(0.7);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.2;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg) scale(1.3);
-                opacity: 0;
-            }
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-main);
         }
         
-        .symbols-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
+        .section-header h2 span {
+            color: var(--deep-rose);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(253, 121, 168, 0.2);
+            border-color: var(--first-love-pink);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: #2d3436;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #636e72;
+            line-height: 1.6;
+        }
+
+        /* --- CTA Section --- */
+        .cta-container {
+            text-align: center;
+            padding: 6rem 1rem;
+            background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(85,239,196,0.1) 100%);
+        }
+
+        .price-display {
             font-size: 3.5rem;
-            color: #6a5acd;
-            flex-wrap: wrap;
+            font-weight: 800;
+            color: var(--deep-rose);
+            margin-bottom: 2rem;
         }
-        
-        .symbol {
-            animation: gentleBounce 4s infinite;
-            animation-delay: calc(var(--i) * 0.4s);
+
+        .price-display span {
+            font-size: 1.5rem;
+            color: #b2bec3;
+            font-weight: 400;
         }
-        
-        @keyframes gentleBounce {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+
+        .buy-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff9ff3, #fd79a8);
+            color: white;
+            padding: 1.2rem 4rem;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(253, 121, 168, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
         }
-        
+
+        .buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(253, 121, 168, 0.5);
+        }
+
+        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 40px 0;
-            color: #6a5acd;
-            font-size: 1.1rem;
-            margin-top: 40px;
-            border-top: 3px solid #d8bfd8;
+            padding: 3rem 1rem;
+            background-color: #fff;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
         }
-        
-        .domain-info {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            max-width: 600px;
-            margin: 40px auto;
-            box-shadow: 0 10px 25px rgba(106, 90, 205, 0.1);
-            border: 2px solid #e6e6fa;
+
+        .email-copy {
+            color: var(--deep-rose);
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
-        
-        .info-title {
-            font-size: 1.8rem;
-            color: #8a2be2;
-            margin-bottom: 20px;
+
+        /* Toast */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #2d3436;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 16px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px dashed #d8bfd8;
-            font-size: 1.2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 3.5rem;
-                letter-spacing: 5px;
-            }
-            
-            .subtitle {
-                font-size: 1.8rem;
-            }
-            
-            .domain-explanation {
-                font-size: 1.5rem;
-            }
-            
-            .letter-box {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
-            }
-            
-            .meaning-box {
-                padding: 30px 20px;
-            }
-            
-            .price {
-                font-size: 3rem;
-            }
-            
-            .email {
-                font-size: 1.3rem;
-                padding: 15px 25px;
-            }
-            
-            .symbols-container {
-                font-size: 2.5rem;
-                gap: 20px;
-            }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <div class="floating-elements" id="floating-elements"></div>
-    
-    <div class="container">
-        <header>
-            <h1 class="logo">wxhn.baby</h1>
-            <h2 class="subtitle">我喜欢你 · 宝贝</h2>
-            
-            <div class="domain-explanation">
-                <div class="letter-box letter-w">w</div>
-                <div class="letter-box letter-x">x</div>
-                <div class="letter-box letter-h">h</div>
-                <div class="letter-box letter-n">n</div>
-                <div class="plus-sign">+</div>
-                <div class="baby-box">.baby</div>
-            </div>
-            
-            <div class="symbols-container">
-                <div class="symbol" style="--i:0">👨‍👩‍👧</div>
-                <div class="symbol" style="--i:1">💖</div>
-                <div class="symbol" style="--i:2">👶</div>
-                <div class="symbol" style="--i:3">❤️</div>
-                <div class="symbol" style="--i:4">👪</div>
-                <div class="symbol" style="--i:5">💕</div>
-                <div class="symbol" style="--i:6">🎁</div>
-            </div>
-        </header>
-        
-        <div class="love-message">
-            <p>"wxhn" 是中文"我喜欢你"的拼音缩写，是含蓄而真挚的爱意表达。</p>
-            <p>".baby" 是对所爱之人最温柔的称呼，无论是恋人之间，还是父母对孩子。</p>
-            <p>组合在一起，成为最温暖的情感纽带 —— "我喜欢你，宝贝"。</p>
+
+    <header>
+        <div class="domain-title">
+            <span class="acronym-part">wxhn</span><span class="tld-part">.baby</span>
         </div>
-        
-        <div class="dual-meaning">
-            <div class="meaning-type romantic">
-                <div class="type-title">
-                    <i class="fas fa-heart" style="color: #ff69b4;"></i>
-                    <span>爱情寓意</span>
-                </div>
-                <p style="font-size: 1.3rem; line-height: 1.8; color: #555;">
-                    <span class="highlight">wxhn</span> 代表"我喜欢你"，是恋人之间最直接的表白。<br><br>
-                    相比"我爱你"的浓烈，"我喜欢你"更加温柔含蓄，<br>
-                    适合表达初萌的爱意或日常的甜蜜关怀。<br><br>
-                    <span class="highlight">.baby</span> 是爱侣间的昵称，<br>
-                    让表白更加亲密动人。
-                </p>
-            </div>
-            
-            <div class="meaning-type parental">
-                <div class="type-title">
-                    <i class="fas fa-child" style="color: #1e90ff;"></i>
-                    <span>亲情寓意</span>
-                </div>
-                <p style="font-size: 1.3rem; line-height: 1.8; color: #555;">
-                    <span class="highlight">wxhn</span> 也可以是父母对孩子说"我喜欢你"，<br>
-                    比"我爱你"更轻松自然，<br>
-                    适合日常亲子间的感情表达。<br><br>
-                    <span class="highlight">.baby</span> 是父母对孩子的爱称，<br>
-                    无论孩子多大，永远是父母的宝贝。
-                </p>
-            </div>
-        </div>
-        
-        <div class="meaning-container">
-            <div class="meaning-box">
-                <h3 class="meaning-title">域名解析</h3>
-                <p class="meaning-text">
-                    <span class="highlight">w</span> = wo (我)<br><br>
-                    <span class="highlight">x</span> = xi (喜)<br><br>
-                    <span class="highlight">h</span> = huan (欢)<br><br>
-                    <span class="highlight">n</span> = ni (你)<br><br>
-                    <span class="highlight">.baby</span> = 宝贝
-                </p>
-            </div>
-            
-            <div class="meaning-box">
-                <h3 class="meaning-title">适用场景</h3>
-                <p class="meaning-text">
-                    1. 情侣之间的甜蜜网站<br><br>
-                    2. 父母记录孩子成长的博客<br><br>
-                    3. 亲子摄影工作室<br><br>
-                    4. 儿童用品品牌<br><br>
-                    5. 家庭纪念日网站<br><br>
-                    6. 爱情或亲情主题的礼物商城
-                </p>
-            </div>
-        </div>
-        
-        <div class="domain-info">
-            <h3 class="info-title">域名特性</h3>
-            <div class="info-item">
-                <span>字符长度：</span>
-                <span>4个字母 + 4个字母 = 8个字符</span>
-            </div>
-            <div class="info-item">
-                <span>寓意：</span>
-                <span>我喜欢你 + 宝贝</span>
-            </div>
-            <div class="info-item">
-                <span>文化特性：</span>
-                <span>仅理解中文拼音的人能领会其含义</span>
-            </div>
-            <div class="info-item">
-                <span>情感维度：</span>
-                <span>爱情与亲情双重含义</span>
-            </div>
-        </div>
-        
-        <div class="price-section">
-            <h3 class="price-title">域名售价</h3>
-            <div class="price">$5200 美金</div>
-            <p class="installment">支持分8期支付，每期仅需 $650</p>
-            <p style="margin-top: 25px; color: #6a5acd; font-size: 1.3rem;">
-                价格中的"520"寓意"我爱你"，是对珍贵情感的投资。<br>
-                分期付款让这份爱意表达更加轻松。
-            </p>
-        </div>
-        
-        <div class="contact-section">
-            <h3 class="contact-title">珍藏这份温暖的爱意</h3>
-            <p style="font-size: 1.4rem; color: #6a5acd; margin-bottom: 25px; line-height: 1.6;">
-                wxhn.baby 是表达真挚情感的完美域名，<br>
-                无论是向爱人表白，还是记录孩子的成长，<br>
-                或是创建温馨的家庭品牌，都是绝佳选择。
-            </p>
-            <a href="mailto:joshua369x@gmail.com" class="email">
-                <i class="fas fa-heart"></i> 联系邮箱：joshua369x@gmail.com <i class="fas fa-heart"></i>
-            </a>
-            <p style="margin-top: 30px; color: #8a2be2; font-size: 1.2rem;">
-                请通过上方邮箱联系咨询购买事宜，期待为您传递这份温暖爱意。
-            </p>
-        </div>
-        
-        <div class="love-message">
-            <p>"爱是恒久忍耐，又有恩慈；爱是不嫉妒，爱是不自夸，不张狂。" ——《圣经·哥林多前书》</p>
-            <p>无论是爱情还是亲情，真挚的喜欢都是最美好的情感。wxhn.baby 让这份喜欢永远珍藏。</p>
-        </div>
-        
-        <footer>
-            <p>wxhn.baby 温暖爱意域名 | 此页面仅面向理解中文拼音文化的受众</p>
-            <p>© 2023 我喜欢你宝贝 版权所有 | 温暖的爱，值得珍藏</p>
-        </footer>
+        <div class="tagline">Wǒ Xǐ Huān Nǐ (我喜欢你)</div>
+        <div class="sub-tagline">从心动的那一刻，到永远的宝贝</div>
+    </header>
+
+    <!-- Canvas: Flowing "我喜欢你" -->
+    <div id="visual-wrapper">
+        <canvas id="likeCanvas"></canvas>
+        <div class="visual-overlay">I LIKE YOU</div>
     </div>
 
+    <section class="features-section">
+        <div class="section-header">
+            <h2>💌 8大领域：喜欢是爱的开始 💌</h2>
+        </div>
+        
+        <div class="grid">
+            <!-- 1. First Confession -->
+            <div class="card">
+                <span class="icon">💓</span>
+                <h3>初次告白 (Confession)</h3>
+                <p>wxhn (我喜欢你) 带着初恋的青涩与美好。发送这个链接，用最委婉又最直接的方式告诉TA你的心意。</p>
+            </div>
+            <!-- 2. Baby Growth -->
+            <div class="card">
+                <span class="icon">🍼</span>
+                <h3>宝宝成长 (Baby Growth)</h3>
+                <p>每个孩子都是父母的“心头好”。.baby 后缀完美契合记录宝宝成长的博客或相册。</p>
+            </div>
+            <!-- 3. Dating Diary -->
+            <div class="card">
+                <span class="icon">📓</span>
+                <h3>恋爱日记 (Dating Diary)</h3>
+                <p>记录从“我喜欢你”开始的每一个甜蜜瞬间。这是一个只属于你们两个人的私密云端空间。</p>
+            </div>
+            <!-- 4. Pet Lover -->
+            <div class="card">
+                <span class="icon">🐱</span>
+                <h3>萌宠日记 (Pet Lover)</h3>
+                <p>对于爱宠人士，家里的猫狗就是最可爱的 Baby。用 wxhn.baby 记录它们呆萌的瞬间。</p>
+            </div>
+            <!-- 5. Fan Support -->
+            <div class="card">
+                <span class="icon">🌟</span>
+                <h3>粉丝应援 (Fan Page)</h3>
+                <p>对偶像说出的最真挚的话就是“我喜欢你”。建立一个粉丝站，汇聚所有喜爱的心声。</p>
+            </div>
+            <!-- 6. Youth Brand -->
+            <div class="card">
+                <span class="icon">🛍️</span>
+                <h3>青春品牌 (Youth Brand)</h3>
+                <p>适合面向年轻人的服饰、饰品或文创品牌。名字朗朗上口，充满年轻的活力与爱意。</p>
+            </div>
+            <!-- 7. Creative Gift -->
+            <div class="card">
+                <span class="icon">🎁</span>
+                <h3>创意礼物 (Creative Gift)</h3>
+                <p>不要只送巧克力。送一个永不过期的域名，代表着“我喜欢你”这句话的有效期是——永远。</p>
+            </div>
+            <!-- 8. Short Video IP -->
+            <div class="card">
+                <span class="icon">🎬</span>
+                <h3>短视频IP (Vlog IP)</h3>
+                <p>打造一个名为“我喜欢你”的自媒体频道，分享生活中那些让人感到幸福的小确幸。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-container">
+        <div class="price-display">$100 <span>USD</span></div>
+        <p style="margin-bottom: 2rem; color: #636e72;">四字母极品 · 含义通俗 · Spaceship 托管</p>
+        
+        <!-- Spaceship Link - Opens in New Tab -->
+        <a href="https://www.spaceship.com/s/buy/wxhn.baby/DiJylDIpnlybzHmY" target="_blank" class="buy-btn">
+            立即购买 · 表达心意
+        </a>
+    </section>
+
+    <footer>
+        <p>联系卖家: <span class="email-copy" onclick="copyEmail()">joshua369x@gmail.com</span></p>
+        <p>© 2026 wxhn.baby | 我喜欢你 All Rights Reserved.</p>
+    </footer>
+
+    <div id="toast">邮箱已复制 (Email Copied)</div>
+
     <script>
-        // 创建浮动元素背景
-        function createFloatingElements() {
-            const container = document.getElementById('floating-elements');
-            const elementCount = 50;
-            const elements = ['👶', '💕', '❤️', '🎀', '🌸', '🌟', '🦄', '🐣', '🐰', '🐻', '🎈', '🎂', '🍼', '🧸'];
-            
-            for (let i = 0; i < elementCount; i++) {
-                const element = document.createElement('div');
-                element.classList.add('floating-element');
-                element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
-                element.style.left = `${Math.random() * 100}%`;
-                element.style.animationDuration = `${20 + Math.random() * 30}s`;
-                element.style.animationDelay = `${Math.random() * 15}s`;
+        // --- Email Copy Function ---
+        function copyEmail() {
+            const email = "joshua369x@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById("toast");
+                toast.className = "show";
+                setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2500);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // --- Canvas Animation: Flowing "我喜欢你" ---
+        const canvas = document.getElementById('likeCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        
+        // Symbols: wxhn + "I like you"
+        const symbols = ['w', 'x', 'h', 'n', '我', '喜', '欢', '你', '❤', '🍬'];
+
+        function resize() {
+            width = canvas.width = canvas.parentElement.offsetWidth;
+            height = canvas.height = canvas.parentElement.offsetHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = Math.random() * width;
+                // Bubbling up effect (like sweet soda or balloons)
+                this.y = initial ? Math.random() * height : height + 30;
                 
-                // 随机大小
-                const size = 20 + Math.random() * 35;
-                element.style.fontSize = `${size}px`;
+                this.speed = 0.5 + Math.random() * 2.0; 
+                this.size = 14 + Math.random() * 20;
+                this.text = symbols[Math.floor(Math.random() * symbols.length)];
                 
-                container.appendChild(element);
+                // Colors: Pastel Pink, Mint, Blue
+                const rand = Math.random();
+                if (rand < 0.33) {
+                    this.color = `rgba(255, 159, 243, ${0.4 + Math.random()*0.6})`; // Pink
+                } else if (rand < 0.66) {
+                    this.color = `rgba(85, 239, 196, ${0.4 + Math.random()*0.6})`; // Mint
+                } else {
+                    this.color = `rgba(116, 185, 255, ${0.4 + Math.random()*0.6})`; // Blue
+                }
+
+                this.wobble = Math.random() * Math.PI * 2;
+                this.wobbleSpeed = 0.05;
+            }
+
+            update() {
+                this.y -= this.speed;
+                this.wobble += this.wobbleSpeed;
+                this.x += Math.sin(this.wobble) * 0.5; // Gentle side to side
+
+                if (this.y < -40) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.font = `${this.size}px "Microsoft YaHei", sans-serif`;
+                ctx.fillStyle = this.color;
+                ctx.fillText(this.text, this.x, this.y);
             }
         }
-        
-        // 页面加载完成后执行
-        window.addEventListener('DOMContentLoaded', (event) => {
-            createFloatingElements();
+
+        // Initialize Particles
+        for (let i = 0; i < 90; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
             
-            // 为字母框添加点击效果
-            const letterBoxes = document.querySelectorAll('.letter-box');
-            letterBoxes.forEach((box, index) => {
-                box.addEventListener('click', function() {
-                    // 临时放大效果
-                    this.style.transform = 'scale(1.5)';
-                    this.style.zIndex = '100';
-                    this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.3)';
-                    
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1.2)';
-                        this.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.1)';
-                        
-                        setTimeout(() => {
-                            this.style.transform = 'scale(1.2) rotate(0deg)';
-                        }, 300);
-                    }, 300);
-                });
+            particles.forEach(p => {
+                p.update();
+                p.draw();
             });
-            
-            // 为邮箱链接添加悬停效果
-            const emailLink = document.querySelector('.email');
-            emailLink.addEventListener('mouseenter', function() {
-                this.innerHTML = '<i class="fas fa-heartbeat"></i> joshua369x@gmail.com <i class="fas fa-heartbeat"></i>';
-            });
-            
-            emailLink.addEventListener('mouseleave', function() {
-                this.innerHTML = '<i class="fas fa-heart"></i> 联系邮箱：joshua369x@gmail.com <i class="fas fa-heart"></i>';
-            });
-            
-            // 为价格部分添加点击效果
-            const priceSection = document.querySelector('.price-section');
-            priceSection.addEventListener('click', function() {
-                this.style.transform = 'scale(0.97)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
-            });
-            
-            // 为含义框添加随机颜色
-            const meaningBoxes = document.querySelectorAll('.meaning-box');
-            const colors = ['#e6f2ff', '#f0e6ff', '#f9f0ff', '#fff0f5'];
-            meaningBoxes.forEach((box, index) => {
-                box.addEventListener('mouseenter', function() {
-                    this.style.backgroundColor = colors[index % colors.length];
-                });
-                
-                box.addEventListener('mouseleave', function() {
-                    this.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                });
-            });
-        });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
     </script>
 </body>
 </html>
